@@ -1,6 +1,8 @@
-## vue-react
+# vue-react
 
 vue-react is a plugin for Vue.js that allows you to use React components just like if they were Vue components.
+
+Demo (soon)
 
 ### Installation
 
@@ -13,7 +15,7 @@ npm install vue-react --save
 #### yarn
 
 ```
-yarn add vee-validate
+yarn add vee-react
 ```
 
 If you dont have already, install react and react-dom packages.
@@ -43,7 +45,7 @@ Vue.react('Resizable', ResizableReact);
 Use your registered component inside your App as usual Vue component.
 
 ```vue
-<Resizable :className="'resizable-item'" :width="width" :height="height" @onResizeStop="stop"></Resizable>
+<Resizable className="resizable-item" :width="width" :height="height" @onResizeStop="onStop"></Resizable>
 ```
 
 ### How it works ?
