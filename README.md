@@ -15,7 +15,7 @@ npm install vue-react --save
 #### yarn
 
 ```
-yarn add vee-react
+yarn add vue-react
 ```
 
 If you dont have already, install react and react-dom packages.
