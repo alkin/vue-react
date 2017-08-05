@@ -2,7 +2,7 @@
   "name": "vue-react",
   "version": "1.0.0",
   "description": "Run React components inside a Vue app.",
-  "main": "index.js",
+  "main": "dist/build.js",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.24.1",
