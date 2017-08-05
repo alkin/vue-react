@@ -1,6 +1,6 @@
 {
   "name": "vue-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use React components as Vue components inside a Vue app.",
   "main": "dist/build.js",
   "dependencies": {},
