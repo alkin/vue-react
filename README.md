@@ -18,10 +18,18 @@ npm install vue-react --save
 yarn add vue-react
 ```
 
-If you dont have already, install react and react-dom packages.
+If you dont have already, install react and react-dom packages. Install the babel plugin also.
 
 ```
-npm install react react-dom --save
+npm install react react-dom babel-plugin-transform-react-jsx --save
+```
+
+Add the plugin in your `.babelrc` file:
+
+```json
+{
+    "plugins": ["transform-react-jsx"]
+}
 ```
 
 ### Usage
