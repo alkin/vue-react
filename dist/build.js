@@ -27,6 +27,61 @@
         };
     }
 
+    function _toConsumableArray(arr) {
+        if (Array.isArray(arr)) {
+            for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+                arr2[i] = arr[i];
+            }
+
+            return arr2;
+        } else {
+            return Array.from(arr);
+        }
+    }
+
+    function getAttributes(el) {
+        for (var i = 0, attributes = el.attributes, n = attributes.length, obj = {}; i < n; i++) {
+            var name = attributes[i].nodeName;
+            var value = attributes[i].nodeValue;
+
+            name = name === 'class' ? 'className' : 'class';
+            obj[name] = value;
+        }
+        return obj;
+    };
+
+    function VNodeToReact(VNode) {
+        if (typeof VNode.tag === 'undefined') {
+            // Trim
+            return VNode.text.replace(/^\s+|\s+$/g, '');
+        }
+
+        if (VNode.tag.indexOf('vue-') === 0) {
+            return;
+        }
+
+        // Attributes
+
+        // children
+        if (typeof VNode.children === 'undefined') {
+            return _react2.default.createElement(VNode.tag, {});
+        }
+
+        return _react2.default.createElement.apply(_react2.default, [VNode.tag, getAttributes(VNode.elm)].concat(_toConsumableArray(VNodesToChildren(VNode.children))));
+    };
+
+    function VNodesToChildren(VNodes) {
+        var children = [];
+        Object.keys(VNodes).forEach(function (i) {
+            var VNode = VNodes[i];
+            var child = VNodeToReact(VNode);
+            if (child) {
+                children.push(child);
+            }
+        });
+        return children;
+    };
+
     exports.default = {
         install: function install(Vue, options) {
             Vue.react = function (name, Component) {
@@ -34,13 +89,14 @@
                     data: function data() {
                         return {
                             props: {},
-                            component: {}
+                            component: {},
+                            children: []
                         };
                     },
 
                     methods: {
                         refresh: function refresh() {
-                            this.component = _reactDom2.default.render(_react2.default.createElement(Component, this.props, null), this.$el);
+                            this.component = _reactDom2.default.render(_react2.default.createElement.apply(_react2.default, [Component, this.props].concat(_toConsumableArray(this.children))), this.$el);
                         }
                     },
                     render: function render(createElement) {
@@ -62,6 +118,9 @@
                                 return _this.$emit.apply(_this, [event].concat(args));
                             };
                         });
+
+                        // Map default slot to children
+                        this.children = VNodesToChildren(this.$slots.default);
 
                         // Render
                         this.refresh();
