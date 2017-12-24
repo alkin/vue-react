@@ -33,6 +33,7 @@ function VNodeToReact(VNode) {
 };
 
 function VNodesToChildren(VNodes) {
+    VNodes = VNodes || [];
     var children = [];
     Object.keys(VNodes).forEach(function (i) {
         var VNode = VNodes[i];
