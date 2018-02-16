@@ -39,6 +39,10 @@
         }
     }
 
+    function eventAttribute(event) {
+        return event.indexOf('on') === 0 ? event : 'on' + event.charAt(0).toUpperCase() + event.slice(1);
+    }
+
     function getAttributes(el) {
         for (var i = 0, attributes = el.attributes, n = attributes.length, obj = {}; i < n; i++) {
             var name = attributes[i].nodeName;
@@ -71,6 +75,7 @@
     };
 
     function VNodesToChildren(VNodes) {
+        VNodes = VNodes || [];
         var children = [];
         Object.keys(VNodes).forEach(function (i) {
             var VNode = VNodes[i];
@@ -110,6 +115,7 @@
 
                         // Register Events and Handlers
                         Object.keys(this._events).forEach(function (event) {
+                            event = eventAttribute(event);
                             _this.props[event] = function () {
                                 for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
                                     args[_key] = arguments[_key];
