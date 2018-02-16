@@ -1,4 +1,8 @@
-<script src="app.efe5698b.js"></script>
+<link rel="stylesheet" type="text/css" href="css/app.e824d115.css">
+
+<script src="js/vendor.0db71b5b.js"></script>
+<script src="js/app.27d98ec3.js"></script>
+
 
 **This is a Work in Progress**
 
