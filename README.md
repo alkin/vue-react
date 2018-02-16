@@ -12,12 +12,6 @@ vue-react is a plugin for Vue.js that allows you to use React components just li
 npm install vue-react --save
 ```
 
-#### yarn
-
-```
-yarn add vue-react
-```
-
 If you dont have already, install react and react-dom packages. Install the babel plugin also.
 
 ```
@@ -45,15 +39,14 @@ Vue.use(VueReact);
 After that, import and register your React components using the new `react` method:
 
 ```javascript
-import ResizableReact from 'react-resizable-box';
-
-Vue.react('Resizable', ResizableReact);
+import { Button } from 'antd';
+Vue.react('Button', Button);
 ```
 
 Use your registered component inside your App as usual Vue component.
 
 ```vue
-<Resizable className="resizable-item" :width="width" :height="height" @onResizeStop="onStop"></Resizable>
+<Button type="danger" size="large" :height="120" @click="buttonClicked">I am a React Button</Button>
 ```
 
 ### How it works ?
