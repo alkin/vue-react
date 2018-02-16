@@ -1,7 +1,4 @@
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/react"></script>
-<script src="https://unpkg.com/react-dom"></script>
-<script src="https://unpkg.com/vue-react"></script>
+<!-- Load Assets here ? -->
 
 **This is a Work in Progress**
 
@@ -17,8 +14,20 @@ Vue.use(VueReact);
 
 # Simple Button
 
-```javascript
-import ResizableReact from 'react-resizable-box';
+You can set attributes, events and inner Html in this simple button.
 
-Vue.react('Resizable', ResizableReact);
+```javascript
+// app.js
+import { Button } from 'antd';
+
+Vue.react('Button', Button);
 ```
+
+```vue
+// App.vue
+<template>
+    <Button type="danger" @click="alert('Button Clicked')">Click Me</Button>
+</template>
+```
+
+<div id="demo-simple-button"></div>
