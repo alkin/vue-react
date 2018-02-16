@@ -17,7 +17,9 @@ require('../node_modules/antd/dist/antd.min.css');
 
 You can set attributes, events and the inner HTML in this simple button. <a href="https://ant.design/components/button/" target="_blank">See Button Component</a>
 
-<div id="demo-button"></div>
+<div style="border: 1px dashed #DDD; padding: 2em; text-align: center; margin-bottom: 1em;">
+    <div id="demo-button"></div>
+</div>
 
 ```javascript
 // app.js
@@ -45,7 +47,6 @@ export default {
 ```
 
 *PRO Tip: All events names will be changed to React pattern (onEvent). Both `@click` and `@onClick` will be registered as `onClick`.*
-
 
 <!-- Assets -->
 <link rel="stylesheet" type="text/css" href="css/app.e824d115.css">
