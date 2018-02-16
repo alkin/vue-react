@@ -1,8 +1,8 @@
-<!-- Load Assets here ? -->
+<script src="app.efe5698b.js"></script>
 
 **This is a Work in Progress**
 
-To demonstrate how to use React components inside your Vue application we will be using some components from the [Ant Design UI Framework](https://ant.design/).
+To demonstrate how to use React components inside your Vue application we will be using some components from the <a href="https://ant.design/" target="_blank">Ant Design UI Framework</a>.
 
 # Install the plugin
 
@@ -10,13 +10,14 @@ First of all, import and install the plugin:
 
 ```javascript
 import VueReact from 'vue-react';
-
 Vue.use(VueReact);
+
+require('../node_modules/antd/dist/antd.min.css');
 ```
 
 # Button
 
-You can set attributes, events and the inner HTML in this simple button. [See Button Component](https://ant.design/components/button/).
+You can set attributes, events and the inner HTML in this simple button. <a href="https://ant.design/components/button/" target="_blank">See Button Component</a>
 
 <div id="demo-button"></div>
 
@@ -29,15 +30,9 @@ Vue.react('Button', Button);
 ```vue
 <!-- App.vue -->
 <template>
-    ...
-    <Button type="danger" @click="buttonClicked">I am a React Button</Button>
-    ...
-</template>
-
-<template>
-  <div id="app">
-      <Button type="danger" @onClick="buttonClicked">I am a React Button</Button>
-  </div>
+    <!-- ... -->
+    <Button type="danger" size="large" @click="buttonClicked">I am a React Button</Button>
+    <!-- ... -->
 </template>
 
 <script>
@@ -51,4 +46,4 @@ export default {
 </script>
 ```
 
-*PRO Tip: You can use both @click (Vue mode) or @onClick (React mode) event names.*
+*PRO Tip: All events names will be changed to React pattern (onEvent). Both `@click` and `@onClick` will be registered as `onClick`.*
