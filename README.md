@@ -1,32 +1,11 @@
-# vue-react
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/react"></script>
+<script src="https://unpkg.com/react-dom"></script>
+<script src="https://unpkg.com/vue-react"></script>
 
-vue-react is a plugin for Vue.js that allows you to use React components just like if they were Vue components.
+**This is a Work in Progress**
 
-[View Demo](https://alkin.github.io/vue-react)
-
-### Installation
-
-#### npm
-
-```
-npm install vue-react --save
-```
-
-If you dont have already, install react and react-dom packages. Install the babel plugin also.
-
-```
-npm install react react-dom babel-plugin-transform-react-jsx --save
-```
-
-Add the plugin in your `.babelrc` file:
-
-```json
-{
-    "plugins": ["transform-react-jsx"]
-}
-```
-
-### Usage
+# Install the plugin
 
 First of all, import and install the plugin:
 
@@ -36,26 +15,10 @@ import VueReact from 'vue-react';
 Vue.use(VueReact);
 ```
 
-After that, import and register your React components using the new `react` method:
+# Simple Button
 
 ```javascript
 import ResizableReact from 'react-resizable-box';
 
 Vue.react('Resizable', ResizableReact);
 ```
-
-Use your registered component inside your App as usual Vue component.
-
-```vue
-<Resizable className="resizable-item" :width="width" :height="height" @onResizeStop="onStop"></Resizable>
-```
-
-### How it works ?
-
-The `react` method creates a new Vue component that maps props and events to the React component. Once mounted, the vue component creates and renders the React component.
-
-This way the registered component works exactly as a Vue component.
-
-### Further improvements
-
-- Support for slots.
