@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function eventAttribute(event) {
+    return (event.indexOf('on') === 0) ? event : 'on' + event.charAt(0).toUpperCase() + event.slice(1);
+}
+
 function getAttributes(el) {
-    for (var i = 0, attributes = el.attributes, n = attributes.length, obj = {}; i < n; i++){
+    for (var i = 0, attributes = el.attributes, n = attributes.length, obj = {}; i < n; i++) {
         var name = attributes[i].nodeName;
         var value = attributes[i].nodeValue;
 
@@ -47,7 +51,7 @@ function VNodesToChildren(VNodes) {
 
 export default {
     install(Vue, options) {
-        Vue.react = function(name, Component) {
+        Vue.react = function (name, Component) {
             const VueComponent = {
                 data() {
                     return {
@@ -70,6 +74,7 @@ export default {
 
                     // Register Events and Handlers
                     Object.keys(this._events).forEach((event) => {
+                        event = eventAttribute(event);
                         this.props[event] = (...args) => this.$emit(event, ...args);
                     });
 

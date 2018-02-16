@@ -16,7 +16,9 @@ Vue.use(VueReact);
 
 # Button
 
-You can set attributes, events and inner Html in this simple button. [See Button Component](https://ant.design/components/button/)
+You can set attributes, events and the inner HTML in this simple button. [See Button Component](https://ant.design/components/button/).
+
+<div id="demo-button"></div>
 
 ```javascript
 // app.js
@@ -27,8 +29,26 @@ Vue.react('Button', Button);
 ```vue
 <!-- App.vue -->
 <template>
-    <Button type="danger" @click="alert('Button Clicked')">Click Me</Button>
+    ...
+    <Button type="danger" @click="buttonClicked">I am a React Button</Button>
+    ...
 </template>
+
+<template>
+  <div id="app">
+      <Button type="danger" @onClick="buttonClicked">I am a React Button</Button>
+  </div>
+</template>
+
+<script>
+export default {
+    methods: {
+        buttonClicked() {
+            alert("Button Clicked");
+        }
+    }
+};
+</script>
 ```
 
-<div id="demo-simple-button"></div>
+*PRO Tip: You can use both @click (Vue mode) or @onClick (React mode) event names.*
