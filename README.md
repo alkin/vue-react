@@ -2,7 +2,7 @@
 
 vue-react is a plugin for Vue.js that allows you to use React components just like if they were Vue components.
 
-Demo (soon)
+[View Demo](https://alkin.github.io/vue-react)
 
 ### Installation
 
@@ -10,12 +10,6 @@ Demo (soon)
 
 ```
 npm install vue-react --save
-```
-
-#### yarn
-
-```
-yarn add vue-react
 ```
 
 If you dont have already, install react and react-dom packages. Install the babel plugin also.
